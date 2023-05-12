@@ -46,6 +46,7 @@ public class Prac05 {
 		Scanner kb = new Scanner(System.in);
 		String str = kb.nextLine();
 		System.out.println(T.solution(str));
+		kb.close();
 	}
 
 }

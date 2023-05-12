@@ -46,7 +46,8 @@ public class Prac04 {
 		for(String x : T.solution(wordCnt, str)) {
 			System.out.println(x);
 		}
-
+		
+		sc.close();
 	}
 
 }

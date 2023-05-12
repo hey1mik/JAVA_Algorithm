@@ -1,6 +1,7 @@
 package inflern.algorithm.cote.sec1;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Prac09 {
 	
@@ -22,17 +23,29 @@ public class Prac09 {
 	첫 줄에 자연수를 출력합니다.
 	*/
 	
-	public int solution() {
+	public int solution(String str) {
 		
-		return 0;
+		String numPt = "^[0-9]*$";
+		StringBuilder sb = new StringBuilder();
+		
+		char[] chrArr = str.toCharArray();
+		for(int i = 0; i < chrArr.length; i++) {
+			String tmpStr = String.valueOf(chrArr[i]);
+			if(Pattern.matches(numPt, tmpStr)) {
+				sb.append(tmpStr);
+			}	
+		}
+		return Integer.parseInt(sb.toString());
 	}
 	
 	public static void main(String[] args) {
 		
 		Prac09 T = new Prac09();
 		Scanner sc = new Scanner(System.in);
-
-
+		String str = sc.nextLine();
+		int result = T.solution(str);
+		System.out.println(result);
+		sc.close();
 	}
 
 }

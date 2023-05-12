@@ -1,6 +1,7 @@
 package inflern.algorithm.cote.sec1;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Prac01 {
 	
@@ -22,14 +23,15 @@ public class Prac01 {
 	
 	public int solution(String str1, String str2) {
 		
-		String[] str1Array = str1.split(" ");
-		int count = 0;		
-		for(String spltdStr : str1Array) {
-			if(spltdStr.contentEquals(str2)) {
-				++count;
+		int result = 0;
+		String cmpStr = str2.toLowerCase();
+		char[] chrArr = str1.toCharArray();
+		for(int i = 0; i < chrArr.length; i++) {
+			if(String.valueOf(chrArr[i]).toLowerCase().equals(cmpStr)) {
+				result++;
 			}
 		}
-		return count;
+		return result;
 	}
 	
 	public static void main(String[] args) {
@@ -37,9 +39,9 @@ public class Prac01 {
 		Prac01 T = new Prac01();
 		Scanner sc = new Scanner(System.in);
 		String str1 = sc.nextLine();
-		String str2 = sc.nextLine();
-		
+		String str2 = sc.nextLine();	
 		System.out.println(T.solution(str1, str2));
+		sc.close();
 
 	}
 }
